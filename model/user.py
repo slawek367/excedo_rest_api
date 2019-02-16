@@ -5,7 +5,7 @@ from datetime import datetime
 def dump_datetime(value):
     if value is None:
         return None
-    return [value.strftime("%Y-%m-%d"), value.strftime("%H:%M:%S")]
+    return value.strftime("%Y-%m-%d %H:%M:%S")
 
 class User(db.Model):
     __tablename__ = "users"

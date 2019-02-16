@@ -7,7 +7,7 @@ pip install -r requirements.txt
 
 Export configuration
 ```
-export APP_SETTINGS="config.DevelopmentConfig"
+export FLASK_ENV=development
 ```
 Start server
 ```
@@ -44,6 +44,11 @@ sudo su - postgres
 psql
 \c excedo_db
 \dt
+```
+
+External db
+```
+export DATABASE_URL=db_url
 ```
 
 ## Useful links
