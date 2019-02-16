@@ -53,4 +53,15 @@ https://flask-migrate.readthedocs.io/en/latest/
 https://flask-restful.readthedocs.io/en/latest/quickstart.html#
 ```
 
-TODO: debug mode not working? check config class and os env get
+TODO: 
+- debug mode not working? check config class and os env get
+- finish User model
+- add photos model
+- finish api endpoints, validation, error codes (Modify user, get user, get user email, get/set profile photo, get register date or just get all)
+- refactor, docstring, pep formatting
+- some tests if time allows
+
+OPTIONAL:
+- cloud deploy
+- try serverless (zappa, s3 aws for photos, aws postgres and lambda)
+- docker local enviroment (fastest and easier to start env)
