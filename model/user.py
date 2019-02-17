@@ -14,7 +14,7 @@ class User(db.Model):
     username = db.Column(db.String(30), unique=True, nullable=False)
     password = db.Column(db.String(30), unique=False, nullable=False)
     email = db.Column(db.String(40), unique=True, nullable=False)
-    created = db.Column(db.DateTime, nullable=False,
+    register_date = db.Column(db.DateTime, nullable=False,
         default=datetime.utcnow)
 
     def __init__(self, username, email, password):
@@ -30,6 +30,6 @@ class User(db.Model):
        return {
            'id' : self.id,
            'username': self.username,
-           'created': dump_datetime(self.created),
+           'register_date': dump_datetime(self.register_date),
            'email': self.email
        }
