@@ -51,6 +51,14 @@ To use external database for example PostgreSQL from AWS RDS export variable
 export DATABASE_URL="postgres://<user>:<password>@<aws_url>:<port>/<db_name>"
 ```
 
+##  Testing
+Currently tests using local database which is hardcoded in config.py as LOCAL_DB_URL variable
+
+Run integration flask rest api tests
+```
+pytest integration_tests.py -v
+```
+
 ## Useful links to liblaries what was used in that project
 ```
 Flask
