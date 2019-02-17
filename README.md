@@ -1,41 +1,41 @@
+# Excedo rest api
+
 ##  Start app locally
-Run local enviroment (I used mkvirtualenv in that case)
+Create virtual enviroment (I used mkvirtualenv in that case with python 3.6 on ubuntu 16.04)
 ```
 mkvirtualenv excedo -p python3.6
 pip install -r requirements.txt
 ```
 
-Export configuration
-```
+Export enviroment variable to start local server
+```bash
 export FLASK_ENV=development
 ```
-Start server
-```
+Run server
+```bash
 flask run --host=0.0.0.0
 ```
 
 ## Database configuration
-Install postgresql
+Install postgresql database
 ```
 https://tecadmin.net/install-postgresql-server-on-ubuntu/
 ```
 
 Run psql console and create db
-```
+```sql
 sudo su - postgres
 psql
-postgres=# CREATE USER slawek SUPERUSER;
-postgres=# CREATE DATABASE excedo_db WITH OWNER slawek;
+postgres=# CREATE USER <your_username> SUPERUSER;
+postgres=# CREATE DATABASE excedo_db WITH OWNER <your_username>;
 \q
 ```
-Where i used "slawek" you can use your username
 
-Make migrations
+Make db migrations
 ```
 python manage.py db init
 python manage.py db migrate
 python manage.py db upgrade
-python manage.py db --help
 ```
 
 Check if tables was created
@@ -46,20 +46,30 @@ psql
 \dt
 ```
 
-External db
-```
-export DATABASE_URL=db_url
+To use external database for example PostgreSQL from AWS RDS export variable
+```bash
+export DATABASE_URL="postgres://<user>:<password>@<aws_url>:<port>/<db_name>"
 ```
 
-## Useful links
+## Useful links to liblaries what was used in that project
 ```
+Flask
+http://flask.pocoo.org/
+
+Flask sqlalchemy
 http://flask-sqlalchemy.pocoo.org/2.3/
+
+Flask migrate
 https://flask-migrate.readthedocs.io/en/latest/
+
+Flask restful
 https://flask-restful.readthedocs.io/en/latest/quickstart.html#
+
+Testing
+http://flask.pocoo.org/docs/1.0/testing/
 ```
 
 TODO: 
-- debug mode not working? check config class and os env get
 - finish User model
 - add photos model
 - finish api endpoints, validation, error codes (Modify user, get user, get user email, get/set profile photo, get register date or just get all)
