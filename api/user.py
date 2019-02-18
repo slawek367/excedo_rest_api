@@ -51,6 +51,7 @@ class UserApi(Resource):
                     return {"error": "Old password is wrong"}, 400
             else:
                 return {"error": "No parameters provided"}, 400
+        return {"error": f"User {user_name} not exists"}, 404
 
 class UsersApi(Resource):
     def get(self):

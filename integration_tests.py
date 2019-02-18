@@ -70,15 +70,3 @@ def test_get_user(client):
     assert "username3" == user["username"]
     assert "username3@gmail.com" == user["email"]
     assert "register_date" in user
-
-'''
-def test_get_register_date(client):
-    pass
-
-##
-def test_upload_user_profile_photo(client):
-    pass
-
-def test_get_user_profile_photo(client):
-    pass
-'''
