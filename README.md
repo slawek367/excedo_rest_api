@@ -59,6 +59,75 @@ Run integration flask rest api tests
 pytest integration_tests.py -v
 ```
 
+##  REST api endpoints
+
+* GET `/users`
+
+``` json
+Returns list of users
+
+
+[
+    {
+        "email": "test@o2.pl",
+        "id": 1,
+        "register_date": "2019-02-18 05:55:02",
+        "username": "test1"
+    }
+]
+```
+* POST `/users`
+
+```json
+Mandatory fields
+
+{
+    "username": "test1",
+    "password": "test123",
+    "email": "test@o2.pl"
+}
+```
+* GET `/users/{user_name}`
+```
+Return user data
+
+{
+    "email": "test@o2.pl",
+    "id": 1,
+    "register_date": "2019-02-18 05:55:02",
+    "username": "test1"
+}
+```
+* PUT `/users/{user_name}`
+```
+Update email
+
+{
+    "email": "test2@o2.pl"
+}
+
+Update password
+
+{
+    "old_password": "oldpass",
+    "new_password": "newpass
+}
+```
+* POST `/users/{user_name}/profile_photo`
+
+    Upload profile photo with key "photo"
+* GET `/users/{user_name}/profile_photo`
+
+```
+Return informations about user photo
+
+{
+    "id": 1,
+    "url": "http://some_hosting_url_server.user_name_profile_photo.jpg",
+    "user_id": 1
+}
+```
+
 ## Useful links to liblaries what was used in that project
 ```
 Flask
@@ -76,15 +145,3 @@ https://flask-restful.readthedocs.io/en/latest/quickstart.html#
 Testing
 http://flask.pocoo.org/docs/1.0/testing/
 ```
-
-TODO: 
-- finish User model
-- add photos model
-- finish api endpoints, validation, error codes (Modify user, get user, get user email, get/set profile photo, get register date or just get all)
-- refactor, docstring, pep formatting
-- some tests if time allows
-
-OPTIONAL:
-- cloud deploy
-- try serverless (zappa, s3 aws for photos, aws postgres and lambda)
-- docker local enviroment (fastest and easier to start env)
