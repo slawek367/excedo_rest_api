@@ -128,7 +128,7 @@ Return informations about user photo
 }
 ```
 
-## Useful links to liblaries what was used in that project
+## Useful links to libraries what was used in that project
 ```
 Flask
 http://flask.pocoo.org/
