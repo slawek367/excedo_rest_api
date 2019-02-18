@@ -13,7 +13,7 @@ class User(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(30), unique=True, nullable=False)
-    password = db.Column(db.String(30), unique=False, nullable=False)
+    password = db.Column(db.String(200), unique=False, nullable=False)
     email = db.Column(db.String(40), unique=True, nullable=False)
     register_date = db.Column(db.DateTime, nullable=False,
         default=datetime.utcnow)
@@ -34,3 +34,4 @@ class User(db.Model):
            'register_date': dump_datetime(self.register_date),
            'email': self.email
        }
+
